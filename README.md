@@ -26,5 +26,9 @@ A*
 Reached goal node 99. Visited 46 nodes. Cost: 6157
 ```
 
+# Performance Analysis
+
+As it is seen from the output above, even though A* expands less nodes, there is no significant difference.
+
 # Copyright
 The project was prepared for Artificial Intelligence class at GWU. All the copyright belongs to the author. The code may only be used for study purposes.
