@@ -21,9 +21,9 @@ The output should look like this:
 
 ```
 UCS
-Reached goal node 99. Visited 56 nodes. 6157
+Reached goal node 99. Visited 57 nodes. Cost: 6157
 A*
-Reached goal node 99. Visited 54 nodes. 6157
+Reached goal node 99. Visited 46 nodes. Cost: 6157
 ```
 
 # Copyright
