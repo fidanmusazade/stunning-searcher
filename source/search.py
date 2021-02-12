@@ -1,7 +1,7 @@
 import numpy as np
 import heapq
 from graph import Node, Graph
-from utils import generate_coordinates
+from utils import generate_coordinates, compute_pythagorean_distance
 
 
 def search(start, use_heuristics=False, coordinates=None):
@@ -29,9 +29,7 @@ def search(start, use_heuristics=False, coordinates=None):
 
             new_cost = total_cost + edge.weight
             if use_heuristics:
-                current_square = coordinates[current_node.square_id]
-                child_square = coordinates[child.square_id]
-                h = np.linalg.norm(current_square-child_square) #compute Euclidean distance
+                h = compute_pythagorean_distance(current_node.square_id, child.square_id)
                 new_cost += h
 
             if child not in visited and not any(item[2]==child for item in q):

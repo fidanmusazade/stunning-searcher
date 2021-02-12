@@ -8,3 +8,9 @@ def generate_coordinates():
         else:
             coordinates[i] = np.array([coordinates[i-1][0]+1000, coordinates[i-1][1]])
     return coordinates
+
+def compute_pythagorean_distance(a, b):
+    horiz_distance = (np.abs(a%10-b%10)+1)*1000
+    vert_distance = (np.abs(a//10-b//10)+1)*1000
+    h = np.sqrt(horiz_distance**2+vert_distance**2)
+    return h
