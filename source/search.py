@@ -8,15 +8,18 @@ def search(start, use_heuristics=False, coordinates=None):
     visited = set()                  
     q = []    #priority queue
                                     
-    q.append((0, start.vertex_id, start, 0))
+    q.append((0, start.vertex_id, start, 0))  #store cost including h(x), start vertex_id, start vertex, and cost without h(x)
     heapq.heapify(q)
+    cnt = 0
     while(len(q)>0):
         total_cost, _, current_node, cost = q[0]
         del q[0]
         heapq.heapify(q)
+
+        cnt+=1
         
         if current_node.is_goal:
-            print('Reached goal node %s. Visited %s nodes. Cost: %s'%(current_node.vertex_id, len(visited), cost))
+            print('Reached goal node %s. Visited %s nodes. Cost: %s'%(current_node.vertex_id, cnt, cost))
             return
 
         visited.add(current_node)
@@ -28,7 +31,7 @@ def search(start, use_heuristics=False, coordinates=None):
             if use_heuristics:
                 current_square = coordinates[current_node.square_id]
                 child_square = coordinates[child.square_id]
-                h = np.linalg.norm(current_square-child_square)
+                h = np.linalg.norm(current_square-child_square) #compute Euclidean distance
                 new_cost += h
 
             if child not in visited and not any(item[2]==child for item in q):
