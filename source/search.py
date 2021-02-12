@@ -1,6 +1,6 @@
 import numpy as np
 import heapq
-from models import Node, Graph
+from graph import Node, Graph
 from utils import generate_coordinates
 
 
