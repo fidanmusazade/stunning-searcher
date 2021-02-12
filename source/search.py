@@ -1,10 +1,10 @@
 import numpy as np
 import heapq
 from graph import Node, Graph
-from utils import generate_coordinates, compute_pythagorean_distance
+from utils import compute_pythagorean_distance
 
 
-def search(start, use_heuristics=False, coordinates=None):
+def search(start, use_heuristics=False):
     visited = set()                  
     q = []    #priority queue
                                     
@@ -46,11 +46,10 @@ def search(start, use_heuristics=False, coordinates=None):
 def run():
     graph = Graph()
     graph.read_graph('p1_graph.txt')
-    coordinates = generate_coordinates()
     print('UCS')
     search(graph.source)
     print('A*')
-    search(graph.source, True, coordinates)   
+    search(graph.source, True)   
 
 
 if __name__=='__main__':
